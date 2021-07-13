@@ -1,20 +1,20 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
-async function getData(query: string) {
-  const url = `/books/search?${query}`;
-  const response = await fetch(url);
-  const movies = await response.json();
-
-  console.log("test movies", movies);
-}
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBooksData } from "./slice";
+import { getBooksData } from "./selectors";
 
 const BooksPage: React.FC = (): JSX.Element => {
   let { search } = useLocation();
+  const dispatch = useDispatch();
+  const books = useSelector(getBooksData);
+
+  console.log("test", books);
 
   useEffect(() => {
-    getData(search);
-  }, [search]);
+    // getData(search);
+    dispatch(fetchBooksData(search));
+  }, [dispatch, search]);
 
   return <div>test</div>;
 };

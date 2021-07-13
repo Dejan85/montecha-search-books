@@ -1,18 +1,23 @@
 import { createSlice, createAction } from "@reduxjs/toolkit";
+import { BOOKS_TYPE } from "./constants";
+
+export const initialState = { books: null };
 
 const booksSlice = createSlice({
-  name: "books",
-  initialState: {},
+  name: BOOKS_TYPE,
+  initialState,
   reducers: {
-    setBooks(state, action) {
+    getBooks(state, action) {
       const books = action.payload;
-      return { ...state, ...books };
+      console.log("test", books);
+
+      state.books = books;
     },
   },
 });
 
-export const { setBooks } = booksSlice.actions;
-export const fetchBooksData = createAction("search__books");
+export const { getBooks } = booksSlice.actions;
+export const fetchBooksData = createAction<string>("search__books");
 
 const booksReducers = booksSlice.reducer;
 
