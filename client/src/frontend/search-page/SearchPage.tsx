@@ -9,8 +9,8 @@ const SearchPage: React.FC = (): JSX.Element => {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
+    // watch,
+    // formState: { errors },
   } = useForm<FormValue>();
   const history = useHistory();
   const { getQuery } = useGenerateQueryString();

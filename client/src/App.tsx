@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { SearchPage, BooksPage } from "src/frontend";
 
 const App: React.FC = (): JSX.Element => {

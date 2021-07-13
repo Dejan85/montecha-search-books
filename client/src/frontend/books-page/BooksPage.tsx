@@ -1,22 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchBooksData } from "./slice";
+import { fetchBooksData, setQueryAction } from "./slice";
 import { getBooksData } from "./selectors";
 
 const BooksPage: React.FC = (): JSX.Element => {
   let { search } = useLocation();
   const dispatch = useDispatch();
-  const books = useSelector(getBooksData);
-
-  console.log("test", books);
+  const { books, query } = useSelector(getBooksData);
 
   useEffect(() => {
-    // getData(search);
-    dispatch(fetchBooksData(search));
-  }, [dispatch, search]);
+    if (query !== `search.json${search}`) {
+      dispatch(fetchBooksData(search));
+      dispatch(setQueryAction(`search.json${search}`));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
 
   return <div>test</div>;
 };
 
-export default BooksPage;
+export default memo(BooksPage);
