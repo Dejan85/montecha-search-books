@@ -1,9 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Form, Input, Label, Button } from "src/ui";
+import { Form, Input, Label, Button, SubContainer } from "src/ui";
 import { FormValue } from "./types";
 import { useGenerateQueryString } from "src/hooks";
 import { useHistory } from "react-router-dom";
+import { Logo } from "src/ui";
 
 const SearchPage: React.FC = (): JSX.Element => {
   const {
@@ -25,13 +26,26 @@ const SearchPage: React.FC = (): JSX.Element => {
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <Label htmlFor="email">Search</Label>
-      <Input type="text" register={{ ...register("search") }} />
-      <Button width="100%" type="submit">
-        Search
-      </Button>
-    </Form>
+    <SubContainer
+      justifyContent="space-between"
+      flexDirection="row"
+      width="100%"
+      backgroundColor="inherit"
+      alignItems="center"
+      padding="30px 0"
+    >
+      <Logo />
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          type="text"
+          placeholder="search"
+          register={{ ...register("search") }}
+        />
+        <Button width="100%" type="submit">
+          Search
+        </Button>
+      </Form>
+    </SubContainer>
   );
 };
 

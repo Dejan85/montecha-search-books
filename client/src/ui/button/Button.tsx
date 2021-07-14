@@ -3,16 +3,16 @@ import { ButtonProps } from "./types";
 
 const ButtonWrapper = styled.button<{ width?: string }>`
   border: none;
-  padding: 1rem 2rem;
-  background-color: orange;
+  padding: 10px;
+  background-color: #0376b8;
   color: white;
   transition: 1s all;
   cursor: pointer;
-  font-size: 1.5rem;
-  width: ${({ width }) => width && width};
+  font-size: 20px;
+  width: 150px;
 
   :hover {
-    background-color: #ba8421;
+    background-color: #0b5f8f;
   }
 `;
 

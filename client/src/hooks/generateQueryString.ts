@@ -1,5 +1,4 @@
-const setQuery = (str: string): string =>
-  `search.json?q=${str}&mode=everything`;
+const setQuery = (str: string): string => `search.json?q=${str}`;
 
 export const useGenerateQueryString = () => {
   const getQuery = (query: string) => {

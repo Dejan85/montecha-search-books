@@ -9,6 +9,7 @@ import { request } from "src/utils";
 
 function* fetchBooksDataGenerator(action) {
   try {
+    yield put(getBooks(null));
     const q = action.payload;
     const url = `/books/search${q}`;
 

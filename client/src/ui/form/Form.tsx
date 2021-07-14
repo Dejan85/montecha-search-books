@@ -3,7 +3,6 @@ import { FormProps } from "./types";
 
 const FormWrapper = styled.form`
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
 `;
 
