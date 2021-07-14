@@ -14,7 +14,7 @@ const resetPageScroll = () => {
 };
 
 const BooksPage: React.FC = (): JSX.Element => {
-  let { search } = useLocation();
+  let { search }: { search: string } = useLocation();
   const dispatch = useDispatch();
   const { books, query } = useSelector(getBooksData);
   const [page, setPage] = useState(1);

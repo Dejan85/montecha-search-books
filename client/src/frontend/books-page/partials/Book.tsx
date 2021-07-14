@@ -5,7 +5,7 @@ import { P, Image, BookContainer, SubContainer } from "src/ui";
 const Books: React.FC<BookPropsInterface> = ({
   book: { author, edition, firstPublish, imgIsbn, lang, title },
 }): JSX.Element => {
-  const [imageUrl, setImageUrl] = useState<{ thumbnail_url: string }>();
+  const [imageUrl, setImageUrl] = useState<string>();
 
   useEffect(() => {
     if (imgIsbn) {
